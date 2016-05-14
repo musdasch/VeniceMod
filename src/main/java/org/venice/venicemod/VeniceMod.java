@@ -1,7 +1,8 @@
 package org.venice.venicemod;
 
-import org.venice.venicemod.blocks.BlockAluminumOre;
-import org.venice.venicemod.items.ItemAluminumIngot;
+import org.venice.venicemod.blocks.OreAluminumBauxite;
+import org.venice.venicemod.generations.BauxiteGeneraton;
+import org.venice.venicemod.items.IngotAluminum;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -24,12 +25,12 @@ public class VeniceMod {
     /**
      * Init all items
      */
-    public static Item itemAluminumIngot;
+    public static Item ingotAluminum;
     
     /**
      * Init all blocks
      */
-    public static Block blockAluminumOre;
+    public static Block oreAluminumBauxite;
     
     @Instance(value = VeniceMod.MODID)
     public static VeniceMod instance;
@@ -39,19 +40,19 @@ public class VeniceMod {
     	/**
     	 * Declared all items
     	 */
-    	itemAluminumIngot = new ItemAluminumIngot();
+    	ingotAluminum = new IngotAluminum();
     	
     	/**
     	 * Declared all blocks
     	 */
-    	blockAluminumOre = new BlockAluminumOre( Material.rock );
+    	oreAluminumBauxite = new OreAluminumBauxite( Material.rock );
     	
     	/**
     	 * Register all items
     	 */
     	GameRegistry.registerItem( 
-    			itemAluminumIngot, 
-    			itemAluminumIngot
+    			ingotAluminum, 
+    			ingotAluminum
     				.getUnlocalizedName()
     				.substring( 5 )
     	);
@@ -60,10 +61,15 @@ public class VeniceMod {
     	 * Register all blocks
     	 */
     	GameRegistry.registerBlock(
-    			blockAluminumOre,
-    			blockAluminumOre
+    			oreAluminumBauxite,
+    			oreAluminumBauxite
     				.getLocalizedName()
     				.substring( 5 )
+    	);
+    	
+    	GameRegistry.registerWorldGenerator(
+    			new BauxiteGeneraton(),
+    			0
     	);
     }
     

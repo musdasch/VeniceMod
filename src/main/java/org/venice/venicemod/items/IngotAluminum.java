@@ -3,9 +3,9 @@ package org.venice.venicemod.items;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
-public class ItemAluminumIngot extends Item {
+public class IngotAluminum extends Item {
 	
-	public ItemAluminumIngot(){
+	public IngotAluminum(){
 		this.setUnlocalizedName( "ingotAluminium" );
 		this.setCreativeTab( CreativeTabs.tabMaterials );
 		this.setTextureName( "venicemod:ingotAluminium" );

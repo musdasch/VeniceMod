@@ -4,9 +4,9 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 
-public class BlockAluminumOre extends Block {
+public class OreAluminumBauxite extends Block {
 
-	public BlockAluminumOre( Material material ) {
+	public OreAluminumBauxite( Material material ) {
 		super( material );
 		this.setBlockName( "oreAluminumBauxite" );
 		this.setCreativeTab( CreativeTabs.tabBlock );
