@@ -7,7 +7,7 @@ public class BauxiteGeneraton extends OreGeneration {
 	public BauxiteGeneraton() {
 		this.setInBlock( VeniceMod.oreAluminumBauxite );
 		this.setAppearInOverworld( true );
-		this.setChans( 5 );
+		this.setChans( 10 );
 	}
 
 }

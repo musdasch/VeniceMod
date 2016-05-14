@@ -1,8 +1,11 @@
 package org.venice.venicemod;
 
 import org.venice.venicemod.blocks.OreAluminumBauxite;
+import org.venice.venicemod.blocks.OreScandium;
 import org.venice.venicemod.generations.BauxiteGeneraton;
+import org.venice.venicemod.generations.ScandiumGeneraton;
 import org.venice.venicemod.items.IngotAluminum;
+import org.venice.venicemod.items.IngotScandium;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -27,11 +30,13 @@ public class VeniceMod {
      * Init all items
      */
     public static Item ingotAluminum;
+    public static Item ingotScandium;
     
     /**
      * Init all blocks
      */
     public static Block oreAluminumBauxite;
+    public static Block oreScandium;
     
     @Instance(value = VeniceMod.MODID)
     public static VeniceMod instance;
@@ -42,11 +47,13 @@ public class VeniceMod {
     	 * Declared all items
     	 */
     	ingotAluminum = new IngotAluminum();
+    	ingotScandium = new IngotScandium();
     	
     	/**
     	 * Declared all blocks
     	 */
     	oreAluminumBauxite = new OreAluminumBauxite( Material.rock );
+    	oreScandium = new OreScandium( Material.rock );
     	
     	/**
     	 * Register all items
@@ -54,6 +61,12 @@ public class VeniceMod {
     	GameRegistry.registerItem( 
     			ingotAluminum, 
     			ingotAluminum
+    				.getUnlocalizedName()
+    				.substring( 5 )
+    	);
+    	GameRegistry.registerItem( 
+    			ingotScandium, 
+    			ingotScandium
     				.getUnlocalizedName()
     				.substring( 5 )
     	);
@@ -67,15 +80,28 @@ public class VeniceMod {
     				.getLocalizedName()
     				.substring( 5 )
     	);
+    	GameRegistry.registerBlock(
+    			oreScandium,
+    			oreScandium
+    				.getLocalizedName()
+    				.substring( 5 )
+    	);
     	
     	
     	/**
-    	 * Register all smelting Recipes
+    	 * Register all smelting recipes
     	 */
     	GameRegistry.addSmelting(
     			this.oreAluminumBauxite,
     			new ItemStack(
     					this.ingotAluminum
+    			),
+    			0.1f
+    	);
+    	GameRegistry.addSmelting(
+    			this.oreScandium,
+    			new ItemStack(
+    					this.ingotScandium
     			),
     			0.1f
     	);
@@ -85,6 +111,10 @@ public class VeniceMod {
     	 */
     	GameRegistry.registerWorldGenerator(
     			new BauxiteGeneraton(),
+    			0
+    	);
+    	GameRegistry.registerWorldGenerator(
+    			new ScandiumGeneraton(),
     			0
     	);
     }
