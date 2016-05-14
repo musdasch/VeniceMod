@@ -14,6 +14,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 @Mod(modid = VeniceMod.MODID, version = VeniceMod.VERSION)
 public class VeniceMod {
@@ -67,6 +68,21 @@ public class VeniceMod {
     				.substring( 5 )
     	);
     	
+    	
+    	/**
+    	 * Register all smelting Recipes
+    	 */
+    	GameRegistry.addSmelting(
+    			this.oreAluminumBauxite,
+    			new ItemStack(
+    					this.ingotAluminum
+    			),
+    			0.1f
+    	);
+    	
+    	/**
+    	 * Gegister all WorldGenerators
+    	 */
     	GameRegistry.registerWorldGenerator(
     			new BauxiteGeneraton(),
     			0
