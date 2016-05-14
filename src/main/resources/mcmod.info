@@ -1,0 +1,16 @@
+[
+{
+  "modid": "venicemod",
+  "name": "Venice Mod",
+  "description": "The Venice Mode",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["musdasch"],
+  "credits": "The Forge and FML guys, for making this example",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
