@@ -1,5 +1,9 @@
 item.ingotAluminium.name=Aluminium Ingot
 item.ingotScandium.name=Scandium Ingot
+item.ingotTitanium.name=Titanium Ingot
+item.ingotVanadium.name=Vanadium Ingot
 
 tile.oreAluminumBauxite.name=Bauxite
-tile.oreScandium.name=Scandium
+tile.oreScandium.name=Scandium Ore
+tile.oreTitanium.name=Titanium Ore
+tile.oreVanadiumVanadinit.name=Vanadinit Ore

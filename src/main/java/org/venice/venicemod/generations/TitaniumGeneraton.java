@@ -8,16 +8,16 @@ import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 
-public class ScandiumGeneraton extends OreGeneration {
+public class TitaniumGeneraton extends OreGeneration  {
 
-	public ScandiumGeneraton(){
-		this.setInBlock( VeniceMod.oreScandium );
+	public TitaniumGeneraton(){
+		this.setInBlock( VeniceMod.oreTitanium );
 		this.setAppearInOverworld( true );
-		this.setChans( 3 );
-		this.setMinY( 55 );
+		this.setChans( 20 );
+		this.setMinY( 50 );
 		this.setMaxY( 100 );
-		this.setMinVienSize( 5 );
-		this.setMaxVienSize( 7 );
+		this.setMinVienSize( 6 );
+		this.setMaxVienSize( 15 );
 	}
 
 }

@@ -2,10 +2,16 @@ package org.venice.venicemod;
 
 import org.venice.venicemod.blocks.OreAluminumBauxite;
 import org.venice.venicemod.blocks.OreScandium;
+import org.venice.venicemod.blocks.OreTitanium;
+import org.venice.venicemod.blocks.OreVanadiumVanadinit;
 import org.venice.venicemod.generations.BauxiteGeneraton;
 import org.venice.venicemod.generations.ScandiumGeneraton;
+import org.venice.venicemod.generations.TitaniumGeneraton;
+import org.venice.venicemod.generations.VanadiumGeneraton;
 import org.venice.venicemod.items.IngotAluminum;
 import org.venice.venicemod.items.IngotScandium;
+import org.venice.venicemod.items.IngotTitanium;
+import org.venice.venicemod.items.IngotVanadium;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -18,28 +24,58 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 
 @Mod(modid = VeniceMod.MODID, version = VeniceMod.VERSION)
 public class VeniceMod {
 	
+	/**
+	 * TODO Longfolingbutes
+	 * TODO Cola
+	 * TODO Lunch Box
+	 * TODO Bir
+	 * TODO Kautabag
+	 * TODO Kartong
+	 * TODO Wax Paper
+	 * TODO Apple and Bread
+	 * TODO Bier Glass
+	 * 
+	 * ------------------
+	 * TODO Palmen
+	 * TODO Trauven
+	 * TODO Hopfen
+	 * 
+	 * ------------------
+	 * TODO U-Boot
+	 * TODO minien
+	 * 
+	 * 
+	 * ------------------
+	 * TODO Elefante
+	 */
+	
 	public static final String MODID = "venicemod";
-    public static final String VERSION = "0.1";
+    public static final String VERSION = "0.2";
     public static final String MODNAME = "Generic Mod";
+    
+    @Instance(value = VeniceMod.MODID)
+    public static VeniceMod instance;
     
     /**
      * Init all items
      */
     public static Item ingotAluminum;
     public static Item ingotScandium;
+    public static Item ingotTitanium;
+    public static Item ingotVanadium;
     
     /**
      * Init all blocks
      */
     public static Block oreAluminumBauxite;
     public static Block oreScandium;
-    
-    @Instance(value = VeniceMod.MODID)
-    public static VeniceMod instance;
+    public static Block oreTitanium;
+    public static Block oreVanadiumVanadinit;
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -48,12 +84,16 @@ public class VeniceMod {
     	 */
     	ingotAluminum = new IngotAluminum();
     	ingotScandium = new IngotScandium();
+    	ingotTitanium = new IngotTitanium();
+    	ingotVanadium = new IngotVanadium();
     	
     	/**
     	 * Declared all blocks
     	 */
     	oreAluminumBauxite = new OreAluminumBauxite( Material.rock );
     	oreScandium = new OreScandium( Material.rock );
+    	oreTitanium = new OreTitanium( Material.rock );
+    	oreVanadiumVanadinit = new OreVanadiumVanadinit( Material.rock );
     	
     	/**
     	 * Register all items
@@ -70,6 +110,18 @@ public class VeniceMod {
     				.getUnlocalizedName()
     				.substring( 5 )
     	);
+    	GameRegistry.registerItem( 
+    			ingotTitanium, 
+    			ingotTitanium
+    				.getUnlocalizedName()
+    				.substring( 5 )
+    	);
+    	GameRegistry.registerItem( 
+    			ingotVanadium, 
+    			ingotVanadium
+    				.getUnlocalizedName()
+    				.substring( 5 )
+    	);
     	
     	/**
     	 * Register all blocks
@@ -78,15 +130,40 @@ public class VeniceMod {
     			oreAluminumBauxite,
     			oreAluminumBauxite
     				.getLocalizedName()
-    				.substring( 5 )
     	);
     	GameRegistry.registerBlock(
     			oreScandium,
     			oreScandium
     				.getLocalizedName()
-    				.substring( 5 )
+    	);
+    	GameRegistry.registerBlock(
+    			oreTitanium,
+    			oreTitanium
+    				.getLocalizedName()
+    	);
+    	GameRegistry.registerBlock(
+    			oreVanadiumVanadinit,
+    			oreVanadiumVanadinit
+    				.getLocalizedName()
     	);
     	
+    	/**
+    	 * Register OreDictionary ingots
+    	 */
+    	OreDictionary.registerOre( "ingotAluminum", ingotAluminum );
+    	OreDictionary.registerOre( "ingotAdamantium", ingotAluminum );
+    	OreDictionary.registerOre( "ingotScandium", ingotScandium );
+    	OreDictionary.registerOre( "ingotTitanium", ingotTitanium );
+    	OreDictionary.registerOre( "ingotVanadium", ingotVanadium );
+    	
+    	/**
+    	 * Register OreDictionary ores
+    	 */
+    	OreDictionary.registerOre( "oreAluminum", oreAluminumBauxite );
+    	OreDictionary.registerOre( "oreAdamantium", oreAluminumBauxite );
+    	OreDictionary.registerOre( "oreScandium", oreScandium );
+    	OreDictionary.registerOre( "oreTitanium", oreTitanium );
+    	OreDictionary.registerOre( "oreVanadium", oreVanadiumVanadinit );
     	
     	/**
     	 * Register all smelting recipes
@@ -105,6 +182,20 @@ public class VeniceMod {
     			),
     			0.1f
     	);
+    	GameRegistry.addSmelting(
+    			this.oreTitanium,
+    			new ItemStack(
+    					this.ingotTitanium
+    			),
+    			0.1f
+    	);
+    	GameRegistry.addSmelting(
+    			this.oreVanadiumVanadinit,
+    			new ItemStack(
+    					this.ingotVanadium
+    			),
+    			0.1f
+    	);
     	
     	/**
     	 * Gegister all WorldGenerators
@@ -115,6 +206,14 @@ public class VeniceMod {
     	);
     	GameRegistry.registerWorldGenerator(
     			new ScandiumGeneraton(),
+    			0
+    	);
+    	GameRegistry.registerWorldGenerator(
+    			new TitaniumGeneraton(),
+    			0
+    	);
+    	GameRegistry.registerWorldGenerator(
+    			new VanadiumGeneraton(),
     			0
     	);
     }
