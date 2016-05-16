@@ -1,6 +1,7 @@
 package org.venice.venicemod;
 
 import org.venice.venicemod.blocks.OreAluminumBauxite;
+import org.venice.venicemod.blocks.OreChromite;
 import org.venice.venicemod.blocks.OreScandium;
 import org.venice.venicemod.blocks.OreTitanium;
 import org.venice.venicemod.blocks.OreVanadiumVanadinit;
@@ -8,7 +9,9 @@ import org.venice.venicemod.generations.BauxiteGeneraton;
 import org.venice.venicemod.generations.ScandiumGeneraton;
 import org.venice.venicemod.generations.TitaniumGeneraton;
 import org.venice.venicemod.generations.VanadiumGeneraton;
+import org.venice.venicemod.items.CrystalChromite;
 import org.venice.venicemod.items.IngotAluminum;
+import org.venice.venicemod.items.IngotChrome;
 import org.venice.venicemod.items.IngotScandium;
 import org.venice.venicemod.items.IngotTitanium;
 import org.venice.venicemod.items.IngotVanadium;
@@ -68,6 +71,8 @@ public class VeniceMod {
     public static Item ingotScandium;
     public static Item ingotTitanium;
     public static Item ingotVanadium;
+    public static Item ingotChrome;
+    public static Item crystalChromite;
     
     /**
      * Init all blocks
@@ -77,6 +82,8 @@ public class VeniceMod {
     public static Block oreTitanium;
     public static Block oreVanadiumVanadinit;
     
+    public static Block oreChromite;
+    public static Block oreCrocoite;
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
     	/**
@@ -86,6 +93,8 @@ public class VeniceMod {
     	ingotScandium = new IngotScandium();
     	ingotTitanium = new IngotTitanium();
     	ingotVanadium = new IngotVanadium();
+    	ingotChrome = new IngotChrome();
+    	crystalChromite = new CrystalChromite();
     	
     	/**
     	 * Declared all blocks
@@ -94,6 +103,7 @@ public class VeniceMod {
     	oreScandium = new OreScandium( Material.rock );
     	oreTitanium = new OreTitanium( Material.rock );
     	oreVanadiumVanadinit = new OreVanadiumVanadinit( Material.rock );
+    	oreChromite = new OreChromite( Material.rock );
     	
     	/**
     	 * Register all items
@@ -119,6 +129,18 @@ public class VeniceMod {
     	GameRegistry.registerItem( 
     			ingotVanadium, 
     			ingotVanadium
+    				.getUnlocalizedName()
+    				.substring( 5 )
+    	);
+    	GameRegistry.registerItem( 
+    			ingotChrome, 
+    			ingotChrome
+    				.getUnlocalizedName()
+    				.substring( 5 )
+    	);
+    	GameRegistry.registerItem( 
+    			crystalChromite, 
+    			crystalChromite
     				.getUnlocalizedName()
     				.substring( 5 )
     	);
