@@ -2,10 +2,13 @@ package org.venice.venicemod;
 
 import org.venice.venicemod.blocks.OreAluminumBauxite;
 import org.venice.venicemod.blocks.OreChromite;
+import org.venice.venicemod.blocks.OreCrocoite;
 import org.venice.venicemod.blocks.OreScandium;
 import org.venice.venicemod.blocks.OreTitanium;
 import org.venice.venicemod.blocks.OreVanadiumVanadinit;
 import org.venice.venicemod.generations.BauxiteGeneraton;
+import org.venice.venicemod.generations.ChromiteChromite;
+import org.venice.venicemod.generations.ChromiteGeneraton;
 import org.venice.venicemod.generations.ScandiumGeneraton;
 import org.venice.venicemod.generations.TitaniumGeneraton;
 import org.venice.venicemod.generations.VanadiumGeneraton;
@@ -81,9 +84,9 @@ public class VeniceMod {
     public static Block oreScandium;
     public static Block oreTitanium;
     public static Block oreVanadiumVanadinit;
-    
     public static Block oreChromite;
     public static Block oreCrocoite;
+    
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
     	/**
@@ -104,6 +107,7 @@ public class VeniceMod {
     	oreTitanium = new OreTitanium( Material.rock );
     	oreVanadiumVanadinit = new OreVanadiumVanadinit( Material.rock );
     	oreChromite = new OreChromite( Material.rock );
+    	oreCrocoite = new OreCrocoite( Material.rock );
     	
     	/**
     	 * Register all items
@@ -168,6 +172,16 @@ public class VeniceMod {
     			oreVanadiumVanadinit
     				.getLocalizedName()
     	);
+    	GameRegistry.registerBlock(
+    			oreChromite,
+    			oreChromite
+    				.getLocalizedName()
+    	);
+    	GameRegistry.registerBlock(
+    			oreCrocoite,
+    			oreCrocoite
+    				.getLocalizedName()
+    	);
     	
     	/**
     	 * Register OreDictionary ingots
@@ -177,6 +191,7 @@ public class VeniceMod {
     	OreDictionary.registerOre( "ingotScandium", ingotScandium );
     	OreDictionary.registerOre( "ingotTitanium", ingotTitanium );
     	OreDictionary.registerOre( "ingotVanadium", ingotVanadium );
+    	OreDictionary.registerOre( "ingotChrome", ingotChrome );
     	
     	/**
     	 * Register OreDictionary ores
@@ -186,6 +201,9 @@ public class VeniceMod {
     	OreDictionary.registerOre( "oreScandium", oreScandium );
     	OreDictionary.registerOre( "oreTitanium", oreTitanium );
     	OreDictionary.registerOre( "oreVanadium", oreVanadiumVanadinit );
+    	OreDictionary.registerOre( "oreVanadium", oreVanadiumVanadinit );
+    	OreDictionary.registerOre( "oreChrome", oreChromite );
+    	OreDictionary.registerOre( "oreChrome", oreCrocoite );
     	
     	/**
     	 * Register all smelting recipes
@@ -218,6 +236,20 @@ public class VeniceMod {
     			),
     			0.1f
     	);
+    	GameRegistry.addSmelting(
+    			this.crystalChromite,
+    			new ItemStack(
+    					this.ingotChrome
+    			),
+    			0.1f
+    	);
+    	GameRegistry.addSmelting(
+    			this.oreCrocoite,
+    			new ItemStack(
+    					this.ingotChrome
+    			),
+    			0.1f
+    	);
     	
     	/**
     	 * Gegister all WorldGenerators
@@ -236,6 +268,14 @@ public class VeniceMod {
     	);
     	GameRegistry.registerWorldGenerator(
     			new VanadiumGeneraton(),
+    			0
+    	);
+    	GameRegistry.registerWorldGenerator(
+    			new ChromiteGeneraton(),
+    			0
+    	);
+    	GameRegistry.registerWorldGenerator(
+    			new ChromiteChromite(),
     			0
     	);
     }

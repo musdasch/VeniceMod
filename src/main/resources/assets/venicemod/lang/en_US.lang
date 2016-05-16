@@ -2,8 +2,12 @@ item.ingotAluminium.name=Aluminium Ingot
 item.ingotScandium.name=Scandium Ingot
 item.ingotTitanium.name=Titanium Ingot
 item.ingotVanadium.name=Vanadium Ingot
+item.ingotChrome.name=Chrome Ingot
+item.crystalChromite.name=Chromite Crystal
 
 tile.oreAluminumBauxite.name=Bauxite
 tile.oreScandium.name=Scandium Ore
 tile.oreTitanium.name=Titanium Ore
 tile.oreVanadiumVanadinit.name=Vanadinit Ore
+tile.oreChromite.name=Chromitet Ore
+tile.oreCrocoite.name=Crocoite Ore
