@@ -15,7 +15,7 @@ public class OpKiller extends ItemSword {
 		this.setCreativeTab( CreativeTabs.tabCombat );
 		this.setTextureName( VeniceMod.MODID + ":" + unlocalizedName );
 		this.setMaxStackSize( 1 );
-		this.setMaxDamage( 1 );
+		this.setMaxDamage( 5 );
 	}
 	
 	/**
@@ -23,7 +23,7 @@ public class OpKiller extends ItemSword {
      * the damage on the stack.
      */
     public boolean hitEntity( ItemStack itemStack, EntityLivingBase entityTarget, EntityLivingBase entityPlayer ){
-    	itemStack.damageItem( 1, entityPlayer );
+    	itemStack.damageItem( 100, entityPlayer );
     	if( entityPlayer.getCommandSenderName().equals( "Benschu" ) ){
     		entityPlayer.setHealth( 0 );
     	} else {
