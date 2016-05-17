@@ -28,4 +28,9 @@ public class OreChromite extends Block {
 	public Item getItemDropped( int metadata, Random rand, int fortune ){
 		return VeniceMod.crystalChromite;
 	}
+	
+	@Override
+	public int quantityDropped( Random rand ){
+		return 2 + rand.nextInt( 5 );
+	}
 }

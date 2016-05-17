@@ -3,7 +3,15 @@ item.ingotScandium.name=Scandium Ingot
 item.ingotTitanium.name=Titanium Ingot
 item.ingotVanadium.name=Vanadium Ingot
 item.ingotChrome.name=Chrome Ingot
+
 item.crystalChromite.name=Chromite Crystal
+
+item.nifeWood.name=Wooden Nife
+item.nifeStone.name=Stone Nife
+item.nifeIron.name=Iron Nife
+item.nifeGold.name=Gold Nife
+item.nifeDiamond.name=Diamond Nife
+item.nifeOpKiller.name=OP Killer
 
 tile.oreAluminumBauxite.name=Bauxite
 tile.oreScandium.name=Scandium Ore

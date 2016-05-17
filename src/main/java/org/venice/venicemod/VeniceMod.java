@@ -18,6 +18,8 @@ import org.venice.venicemod.items.IngotChrome;
 import org.venice.venicemod.items.IngotScandium;
 import org.venice.venicemod.items.IngotTitanium;
 import org.venice.venicemod.items.IngotVanadium;
+import org.venice.venicemod.items.Nife;
+import org.venice.venicemod.items.OpKiller;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -28,6 +30,8 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
@@ -36,6 +40,10 @@ import net.minecraftforge.oredict.OreDictionary;
 public class VeniceMod {
 	
 	/**
+	 * TODO COINS
+	 * TODO TRADING STATION
+	 * 
+	 * --------------------------
 	 * TODO Longfolingbutes
 	 * TODO Cola
 	 * TODO Lunch Box
@@ -68,14 +76,28 @@ public class VeniceMod {
     public static VeniceMod instance;
     
     /**
-     * Init all items
+     * Init all ingot
      */
     public static Item ingotAluminum;
     public static Item ingotScandium;
     public static Item ingotTitanium;
     public static Item ingotVanadium;
     public static Item ingotChrome;
+    
+    /**
+     * Init all crystal
+     */
     public static Item crystalChromite;
+    
+    /**
+     * Init all nife
+     */
+    public static Item nifeWood;
+    public static Item nifeStone;
+    public static Item nifeIron;
+    public static Item nifeGold;
+    public static Item nifeDiamond;
+    public static Item nifeOpKiller;
     
     /**
      * Init all blocks
@@ -90,14 +112,46 @@ public class VeniceMod {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
     	/**
-    	 * Declared all items
+    	 * Declared all ingot
     	 */
     	ingotAluminum = new IngotAluminum();
     	ingotScandium = new IngotScandium();
     	ingotTitanium = new IngotTitanium();
     	ingotVanadium = new IngotVanadium();
     	ingotChrome = new IngotChrome();
+    	
+    	/**
+    	 * Declared all crystal
+    	 */
     	crystalChromite = new CrystalChromite();
+    	
+    	/**
+    	 * Declared all nifes
+    	 */
+    	nifeWood = new Nife( 
+    			Item.ToolMaterial.WOOD,
+    			"nifeWood"
+    	);
+    	nifeStone = new Nife( 
+    			Item.ToolMaterial.STONE,
+    			"nifeStone"
+    	);
+        nifeIron = new Nife( 
+    			Item.ToolMaterial.IRON,
+    			"nifeIron"
+    	);
+        nifeGold = new Nife( 
+    			Item.ToolMaterial.GOLD,
+    			"nifeGold"
+    	);
+        nifeDiamond = new Nife( 
+    			Item.ToolMaterial.EMERALD,
+    			"nifeDiamond"
+    	);
+        nifeOpKiller = new OpKiller( 
+    			Item.ToolMaterial.EMERALD,
+    			"nifeOpKiller"
+    	);
     	
     	/**
     	 * Declared all blocks
@@ -110,7 +164,7 @@ public class VeniceMod {
     	oreCrocoite = new OreCrocoite( Material.rock );
     	
     	/**
-    	 * Register all items
+    	 * Register all ingot
     	 */
     	GameRegistry.registerItem( 
     			ingotAluminum, 
@@ -142,9 +196,53 @@ public class VeniceMod {
     				.getUnlocalizedName()
     				.substring( 5 )
     	);
+    	
+    	/**
+    	 * Register all crystal
+    	 */
     	GameRegistry.registerItem( 
     			crystalChromite, 
     			crystalChromite
+    				.getUnlocalizedName()
+    				.substring( 5 )
+    	);
+    	
+    	/**
+    	 * Register all nife
+    	 */
+    	GameRegistry.registerItem( 
+    			nifeWood, 
+    			nifeWood
+    				.getUnlocalizedName()
+    				.substring( 5 )
+    	);
+    	GameRegistry.registerItem( 
+    			nifeStone, 
+    			nifeStone
+    				.getUnlocalizedName()
+    				.substring( 5 )
+    	);
+    	GameRegistry.registerItem( 
+    			nifeIron, 
+    			nifeIron
+    				.getUnlocalizedName()
+    				.substring( 5 )
+    	);
+    	GameRegistry.registerItem( 
+    			nifeGold, 
+    			nifeGold
+    				.getUnlocalizedName()
+    				.substring( 5 )
+    	);
+    	GameRegistry.registerItem( 
+    			nifeDiamond, 
+    			nifeDiamond
+    				.getUnlocalizedName()
+    				.substring( 5 )
+    	);
+    	GameRegistry.registerItem( 
+    			nifeOpKiller, 
+    			nifeOpKiller
     				.getUnlocalizedName()
     				.substring( 5 )
     	);
@@ -204,6 +302,39 @@ public class VeniceMod {
     	OreDictionary.registerOre( "oreVanadium", oreVanadiumVanadinit );
     	OreDictionary.registerOre( "oreChrome", oreChromite );
     	OreDictionary.registerOre( "oreChrome", oreCrocoite );
+    	
+    	/**
+    	 * Register all recipes
+    	 */
+    	GameRegistry.addRecipe(new ItemStack( nifeWood ),
+    	    "A",
+    	    "A",
+    	    'A', new ItemStack( Item.getItemById( 280 ) )//Wooden Stick
+    	);
+    	GameRegistry.addRecipe( new ItemStack( nifeStone ),
+        	    "A",
+        	    "B",
+        	    'A', new ItemStack( Blocks.cobblestone ),
+        	    'B', new ItemStack( Item.getItemById( 280 ) )//Wooden Stick
+    	);
+    	GameRegistry.addRecipe( new ItemStack( nifeIron ),
+        	    "A",
+        	    "B",
+        	    'A', new ItemStack( Item.getItemById( 265 ) ),//Iron Ingot
+        	    'B', new ItemStack( Item.getItemById( 280 ) )//Wooden Stick
+    	);
+    	GameRegistry.addRecipe( new ItemStack( nifeGold ),
+        	    "A",
+        	    "B",
+        	    'A', new ItemStack( Item.getItemById( 266 ) ),//Iron Ingot
+        	    'B', new ItemStack( Item.getItemById( 280 ) )//Wooden Stick
+    	);
+    	GameRegistry.addRecipe( new ItemStack( nifeDiamond ),
+        	    "A",
+        	    "B",
+        	    'A', new ItemStack( Item.getItemById( 264 ) ),//Iron Ingot
+        	    'B', new ItemStack( Item.getItemById( 280 ) )//Wooden Stick
+    	);
     	
     	/**
     	 * Register all smelting recipes
