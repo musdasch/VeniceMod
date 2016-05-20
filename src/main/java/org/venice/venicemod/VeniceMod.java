@@ -51,7 +51,6 @@ public class VeniceMod {
 	 * TODO Kautabag
 	 * TODO Kartong
 	 * TODO Wax Paper
-	 * TODO Apple and Bread
 	 * TODO Bier Glass
 	 * 
 	 * ------------------
@@ -103,6 +102,11 @@ public class VeniceMod {
      * Init all food
      */
     public static Item foodAppleAndBread;
+    
+    /**
+     * Init all coins
+     */
+    public static Item coinVeniceCredit;
     
     /**
      * Init all blocks
@@ -164,7 +168,13 @@ public class VeniceMod {
         foodAppleAndBread = new ItemFood( 6, 0.9F, false )
         		.setUnlocalizedName( "foodAppleAndBread" )
         		.setTextureName( VeniceMod.MODID + ":foodAppleAndBread" );
-    	
+        
+        /**
+         * Declared all coins
+         */
+        coinVeniceCredit = new Item()
+        		.setUnlocalizedName( "coinVeniceCredit" )
+        		.setTextureName( VeniceMod.MODID + ":coinVeniceCredit" );
     	/**
     	 * Declared all blocks
     	 */
@@ -270,6 +280,16 @@ public class VeniceMod {
     	);
     	
     	/**
+    	 * Register all coins
+    	 */
+    	GameRegistry.registerItem(
+    			coinVeniceCredit,
+    			coinVeniceCredit
+    				.getUnlocalizedName()
+    				.substring( 5 )
+    	);
+    	
+    	/**
     	 * Register all blocks
     	 */
     	GameRegistry.registerBlock(
@@ -363,6 +383,13 @@ public class VeniceMod {
         	    'A', new ItemStack( Item.getItemById( 264 ) ),//Iron Ingot
         	    'B', new ItemStack( Item.getItemById( 280 ) )//Wooden Stick
     	);
+    	GameRegistry.addRecipe(new ItemStack( coinVeniceCredit, 4 ),
+        	    "AA",
+        	    "AA",
+        	    'A', new ItemStack( 
+        	    		(Item)Item.itemRegistry.getObject("iron_ingot")
+        	    )
+        	);
     	
     	/**
     	 * 
