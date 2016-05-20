@@ -31,8 +31,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -100,6 +100,11 @@ public class VeniceMod {
     public static Item nifeOpKiller;
     
     /**
+     * Init all food
+     */
+    public static Item foodAppleAndBread;
+    
+    /**
      * Init all blocks
      */
     public static Block oreAluminumBauxite;
@@ -152,6 +157,13 @@ public class VeniceMod {
     			Item.ToolMaterial.EMERALD,
     			"nifeOpKiller"
     	);
+        
+        /**
+         * Declared all food
+         */
+        foodAppleAndBread = new ItemFood( 6, 0.9F, false )
+        		.setUnlocalizedName( "foodAppleAndBread" )
+        		.setTextureName( VeniceMod.MODID + ":foodAppleAndBread" );
     	
     	/**
     	 * Declared all blocks
@@ -248,37 +260,53 @@ public class VeniceMod {
     	);
     	
     	/**
+    	 * Register all food
+    	 */
+    	GameRegistry.registerItem(
+    			foodAppleAndBread,
+    			foodAppleAndBread
+    				.getUnlocalizedName()
+    				.substring( 5 )
+    	);
+    	
+    	/**
     	 * Register all blocks
     	 */
     	GameRegistry.registerBlock(
     			oreAluminumBauxite,
     			oreAluminumBauxite
-    				.getLocalizedName()
+	    			.getUnlocalizedName()
+					.substring( 5 )
     	);
     	GameRegistry.registerBlock(
     			oreScandium,
     			oreScandium
-    				.getLocalizedName()
+	    			.getUnlocalizedName()
+					.substring( 5 )
     	);
     	GameRegistry.registerBlock(
     			oreTitanium,
     			oreTitanium
-    				.getLocalizedName()
+	    			.getUnlocalizedName()
+					.substring( 5 )
     	);
     	GameRegistry.registerBlock(
     			oreVanadiumVanadinit,
     			oreVanadiumVanadinit
-    				.getLocalizedName()
+	    			.getUnlocalizedName()
+					.substring( 5 )
     	);
     	GameRegistry.registerBlock(
     			oreChromite,
     			oreChromite
-    				.getLocalizedName()
+	    			.getUnlocalizedName()
+					.substring( 5 )
     	);
     	GameRegistry.registerBlock(
     			oreCrocoite,
     			oreCrocoite
-    				.getLocalizedName()
+	    			.getUnlocalizedName()
+					.substring( 5 )
     	);
     	
     	/**
@@ -334,6 +362,19 @@ public class VeniceMod {
         	    "B",
         	    'A', new ItemStack( Item.getItemById( 264 ) ),//Iron Ingot
         	    'B', new ItemStack( Item.getItemById( 280 ) )//Wooden Stick
+    	);
+    	
+    	/**
+    	 * 
+    	 */
+    	GameRegistry.addShapelessRecipe(
+    			new ItemStack( foodAppleAndBread ),
+    			new ItemStack( 
+    					(Item) Item.itemRegistry.getObject("apple")
+    			),
+    			new ItemStack(
+    					(Item) Item.itemRegistry.getObject("bread")
+    			)
     	);
     	
     	/**
@@ -413,11 +454,9 @@ public class VeniceMod {
     
     @EventHandler
     public void init(FMLInitializationEvent event){
-    	//TODO
     }
     
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-    	//TODO
     }
 }
