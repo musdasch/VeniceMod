@@ -69,7 +69,7 @@ public class VeniceMod {
 	 */
 	
 	public static final String MODID = "venicemod";
-    public static final String VERSION = "0.2";
+    public static final String VERSION = "0.3";
     public static final String MODNAME = "Generic Mod";
     
     @Instance(value = VeniceMod.MODID)
