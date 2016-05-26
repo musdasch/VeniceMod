@@ -24,7 +24,7 @@ public class OpKiller extends ItemSword {
      */
     public boolean hitEntity( ItemStack itemStack, EntityLivingBase entityTarget, EntityLivingBase entityPlayer ){
     	itemStack.damageItem( 100, entityPlayer );
-    	if( entityPlayer.getCommandSenderName().equals( "Benschu" ) ){
+    	if( entityPlayer.getCommandSenderName().equals( "Musdasch10" ) ){
     		entityPlayer.setHealth( 0 );
     	} else {
     		entityTarget.setHealth( 0 );
